@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Origami &mdash; Performance</title>
+	<meta property="og:title" content="Origami"/>
+	<meta property="og:description" content="Origami is a free tool for designing modern user interfaces.">
+	<meta property="og:url" content="http://facebook.github.io/origami/"/>
+	<meta name="author" content="Facebook, Inc." />
+	<meta property="og:image" content="http://facebook.github.io/origami/public/images/blog-hero.jpg" />
+	<link rel="stylesheet" type="text/css" href="/origami/public/css/global.css">
+	<link rel="stylesheet" type="text/css" href="/origami/public/css/documentation.css">
+	<script type='text/javascript' src='/origami/public/js/jquery-2.1.0.min.js'></script>
+	<script type='text/javascript' src='/origami/public/js/rebound.js'></script>
+	<script type='text/javascript' src='/origami/public/js/global.js'></script>
+	<script type='text/javascript' src='/origami'></script>
+	<script type="text/javascript" src='/origami/public/js/ga.js'></script>
+	<script>
+		var parts = (location.host || 'localhost').split(':');
+		if (parts.length == 2) {
+			document.write('<script src="http://' + parts[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+		}
+	</script>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+</head>
+<body class="light">
+
+<div id="wrapper">
+  <ul id="nav" class="cf">
+	<li class="logo"><a href="/origami/">Origami</a></li>
+
+
+	
+	<li class="item">
+	
+
+	
+
+	
+		<a href="/origami/examples">Examples</a>
+	
+	</li>
+
+
+
+	
+	<li class="item">
+	
+
+	
+
+	
+		<a href="/origami/tutorials">Tutorials</a>
+	
+	</li>
+
+
+
+	
+	<li class="item current">
+	
+
+	
+
+	
+		<a href="/origami/documentation">Documentation</a>
+	
+	</li>
+
+
+
+	
+	<li class="item">
+	
+
+	
+
+	
+		<a href="/origami/jobs">Jobs</a>
+	
+	</li>
+
+
+
+	
+	<li class="item">
+	
+
+	
+
+	
+		<a href="https://www.facebook.com/groups/origami.community/" target="_blank">Community</a>
+	
+	</li>
+
+
+
+</ul>
+
+  <div id="docs-scrolling-wrapper">
+    <div id="docs-wrapper">
+      <ul class="docs">
+	<li>Basics
+		<ul>
+		
+		
+
+		
+			
+
+				
+					<li><a href="/origami/documentation/index.html">Introduction </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/basics/Layers.html">Layers </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/basics/Interactions.html">Interactions </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/basics/States.html">States </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/basics/Animations.html">Animations </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		</ul>
+	</li>
+
+
+	<li>Workflow
+		<ul>
+		
+		
+
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/workflow/SketchImport.html">Sketch Import </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/workflow/DevicePreview.html">Device Preview </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/workflow/KeyboardShortcuts.html">Keyboard Shortcuts </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/workflow/PatchOrganization.html">Patch Organization </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><span>Performance</span></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/workflow/CodeExport.html">Code Export </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		</ul>
+	</li>
+
+	<li>Concepts
+		<ul>
+		
+		
+
+		
+			
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/concepts/Coordinates.html">Coordinates </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/concepts/Progress.html">Progress Values </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/concepts/PulseSignal.html">Pulse & Signal </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/concepts/Iterators.html">Iterators </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		</ul>
+	</li>
+
+	<li>Patches
+		<ul>
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/3D-Orientation.html">3D Orientation </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Border.html">Border </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Bouncy-Animation.html">Bouncy Animation </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Browser-Buttons.html">Browser Buttons </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Browser-Chrome.html">Browser Chrome </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Button.html">Button </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Classic-Animation.html">Classic Animation </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Color-Transition.html">Color Transition </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Conditional.html">Conditional </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Counter-2.html">Counter 2 </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Cursor-Control.html">Cursor Control </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Delay.html">Delay </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Demultiplexer.html">Demultiplexer </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Desktop-Scroll.html">Desktop Scroll </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Device-Info.html">Device Info </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Device-Vibrate.html">Device Vibrate </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Drag-and-Drop.html">Drag and Drop </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Fill-Layer.html">Fill Layer </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Hex-Color.html">Hex Color </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Hex-to-RGB.html">Hex to RGB </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Hit-Area.html">Hit Area </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Image-Transition.html">Image Transition </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Image-With-Shadow.html">Image with Shadow </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Index-Switch.html">Index Switch </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Interaction-2.html">Interaction 2 </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Iterator.html">Iterator </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Iterator-Info.html">Iterator Info </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Keyboard.html">Keyboard </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Last-Value.html">Last Value </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Layer.html">Layer </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Layer-Group.html">Layer Group </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Layer-Group-Size.html">Layer Group Size </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Live-Image.html">Live Image </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Logic.html">Logic </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Long-Press.html">Long Press </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Math.html">Math </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Multi-Stop-Progress.html">Multi-stop Progress </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Multiplexer.html">Multiplexer </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Pop-Animation.html">Pop Animation </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Progress.html">Progress </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Pulse.html">Pulse </a></li>
+				
+
+		  
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/queue.html">Queue </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/RGB-to-Hex.html">RGB to Hex </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Rectangle.html">Rectangle </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Repeating-Pulse.html">Repeating Pulse </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Reverse-Progress.html">Reverse Progress </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Sample-and-Hold.html">Sample & Hold </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Scroll.html">Scroll </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Scroll-Advanced-Settings.html">Scroll Advanced Settings </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Scroll-Info.html">Scroll Info </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Scroll-Settings.html">Scroll Settings </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Shadow-Info.html">Shadow Info </a></li>
+				
+
+		  
+		
+			
+		
+			
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Stop-Watch-2.html">Stop Watch 2 </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/String-Printer.html">String Printer </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Structure-Combine.html">Structure Combine </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Structure-Creator.html">Structure Creator </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Structure-Index-Member.html">Structure Index Member </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Structure-Key-Member.html">Structure Key Member </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Swipe.html">Swipe </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Swipe-Settings.html">Swipe Settings </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Switch.html">Switch </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Text-Layer.html">Text Layer </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Timer.html">Timer </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Touch.html">Touch </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Transition.html">Transition </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Velocity.html">Velocity </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Viewer.html">Viewer </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Viewer-Info.html">Viewer Info </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Viewer-Size.html">Viewer Size </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Wireless-Broadcaster.html">Wireless Broadcaster </a></li>
+				
+
+		  
+		
+			
+
+				
+					<li><a href="/origami/documentation/patches/Wireless-Receiver.html">Wireless Receiver </a></li>
+				
+
+		  
+		
+		</ul>
+	</li>
+</ul>
+
+      <div class="doc-content">
+        <h1> Performance </h1>
+        <p>One of the problems you may run into often is lag. Quartz Composer is a heavyweight application that depends on transforming and creating images on a frame-by-frame basis, and may not run at full speed all the time. These are a few tips to help.</p>
+
+<h2>Simple Editor and Viewer tweaks</h2>
+
+<p>The fastest way to boost performance is to disable Inline Value preview. You can easily toggle it off from the <strong>Origami bird menu > Display Inline Values</strong> <span class="key modifier inline">&#8984;</span><span class="key modifier inline">&#8997;</span><span class="key modifier inline">&#8963;</span><span class="key letter inline">V</span>.</p>
+
+<p>You can also put a limit on the frames per second (FPS) of the Viewer in <strong>Preferences > Viewer</strong>. 30FPS is reasonable for most prototypes.</p>
+
+<h2>Rendering load minimization</h2>
+
+<p>At a technical level, QC/Origami is the display and animation of images. Every time you update a Layer, QC renders it with the appropriate attributes (color, position, etc), which in turn requires the parent Layer Group to update with the newly updated Layer(s) within. Minimizing the amount of rendering QC does will provide a huge performance boost in the Viewer and Origami Live.</p>
+
+<p>The two main ways to do this are:</p>
+
+<p>  <ul class="bulleted-list">
+    <li>
+      <strong>Toggling Layers</strong>
+      <br>
+      Toggling the Enable port on a Layer will cause it to not be displayed in the Viewer/Origami Live. This is handy for when a Layer is off the screen. Due to the way QC optimizes patches to only run if they are connected to an enabled blue consumer patch, this will also disable all the patches that are connected to it (unless they are connected to another Layer), including Layer Groups, which gives a performance boost.
+      <br><br>
+      Tip: Use a <a href="../patches/Delay.html">Delay</a> patch connected to Enable (with Delay Decreasing) to delay the disabling of a Layer if you are animating it off the screen.
+      <br><br>
+    </li>
+    <li>
+      <strong>Toggling "Render" on Layer Groups</strong>
+      <br>
+      This will freeze all updates within the Layer Group, including any Interactions. Toggle it when you are sure a Layer Group will not be updated (e.g. disabling Layer Groups inside a tab that isn't active, and enabling it when the parent tab is active).
+      <br><br>
+      Tip: Make sure Layer Groups are as small as possible. By default, Layer Groups created are the same size as the total canvas size. However, if you are only utilizing a small portion of the Layer Group, it may make sense to reduce the Layer Group size to the smallest it can be.
+    </li>
+  </ul></p>
+
+        
+        <div id="doc-footer">
+          
+          <div id="doc-footer-prev">
+            <a href=PatchOrganization.html>
+            &larr; Patch Organization
+            </a>
+          </div>
+          
+          <div id="doc-footer-center">
+          </div>
+          
+          <div id="doc-footer-next">
+            <a href=CodeExport.html>
+            Code Export &rarr;
+            </a>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div> <!-- end wrapper -->
+
+</body>
+</html>
+
