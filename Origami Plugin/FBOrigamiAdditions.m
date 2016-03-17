@@ -66,7 +66,7 @@ static NSString *kMinimumSupportedQCVersion = @"4.6";
 + (void)initialize
 {
   static BOOL initialized = NO;
-  if (!initialized && [[NSProcessInfo processInfo].processName isEqualToString:@"Quartz Composer"]) {
+  if (!initialized) {
       initialized = YES;
       sharedSingleton = [[FBOrigamiAdditions alloc] init];
       origamiBundle = [NSBundle bundleWithIdentifier:ORIGAMI_BUNDLE_IDENTIFIER];
